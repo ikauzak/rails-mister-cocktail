@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :cocktails, only: [:create, :index, :show, :new, :destroy] do
+    root to: 'cocktails#index'
+  resources :cocktails, only: [:index, :show, :new, :create] do
     resources :doses, only: [:create, :new]
+    resources :reviews, only: [:create]
   end
-  resources :doses, only: [:destroy, :show]
+  resources :doses, only: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # get '/cocktails', to: 'cocktails#index'
